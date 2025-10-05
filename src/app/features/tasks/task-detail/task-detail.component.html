@@ -1,1 +1,66 @@
-<p>task-detail works!</p>
+<h2 class="bg-[#4b5172]" mat-dialog-title>
+  Detalle de la tarea
+</h2>
+
+
+<mat-dialog-content class="pt-3">
+  <ng-container *ngIf="task">
+    <dl class="space-y-5">
+
+      <div class="flex items-start">
+        <mat-icon class="text-gray-400 mr-4 mt-1">title</mat-icon>
+        <div>
+          <dt class="text-sm font-medium text-white">Título</dt>
+          <dd class="text-md text-white">{{ task.title }}</dd>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <mat-icon class="text-gray-400 mr-4 mt-1">description</mat-icon>
+        <div>
+          <dt class="text-sm font-medium text-white">Descripción</dt>
+          <dd class="text-md text-white">{{ task.description }}</dd>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <mat-icon class="text-gray-400 mr-4 mt-1">person_outline</mat-icon>
+        <div>
+          <dt class="text-sm font-medium text-white">Usuario</dt>
+          <dd class="text-md text-white">{{ task.user?.name }} ({{ task.user?.email }})</dd>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <mat-icon class="text-gray-400 mr-4 mt-1">calendar_today</mat-icon>
+        <div>
+          <dt class="text-sm font-medium text-white">Fecha de creación</dt>
+          <dd class="text-md text-white">{{ task.createdAt | date: 'medium' }}</dd>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <mat-icon class="text-gray-400 mr-4 mt-1">flag</mat-icon>
+        <div>
+          <dt class="text-sm font-medium text-white">Estado</dt>
+          <dd>
+            <span class="px-3 py-1 rounded-full text-sm font-semibold" [ngClass]="{
+                'bg-green-100 text-green-800': task.completed,
+                'bg-yellow-100 text-yellow-800': !task.completed
+              }">
+              {{ task.completed ? "Completada" : "Pendiente" }}
+            </span>
+          </dd>
+        </div>
+      </div>
+
+    </dl>
+  </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="border-t pt-4">
+  <button (click)="close()"
+    class="px-5 py-2 rounded-lg bg-[#4b5172] text-white font-medium hover:bg-[#3d4259] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+    Cerrar
+  </button>
+</mat-dialog-actions>

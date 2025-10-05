@@ -1,1 +1,29 @@
-<p>task-form works!</p>
+<h2 class="bg-[#4b5172]" mat-dialog-title>
+  Tareas
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="taskForm">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error *ngIf="taskForm.get('title')?.hasError('required') && taskForm.get('title')?.touched">
+        El título es obligatorio
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+      <mat-error *ngIf="taskForm.get('description')?.hasError('required') && taskForm.get('description')?.touched">
+        La descripción es obligatoria
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="p-4">
+  <button mat-raised-button class="mr-2 text-gray-700" (click)="close()">Cancelar</button>
+  <button mat-raised-button style="background-color: #4b5172;" class="text-white" [disabled]="taskForm.invalid"
+    (click)="save()">{{ data?.action === 'edit' ? 'Actualizar' : 'Guardar' }}</button>
+</mat-dialog-actions>
