@@ -45,10 +45,10 @@
           <dt class="text-sm font-medium text-white">Estado</dt>
           <dd>
             <span class="px-3 py-1 rounded-full text-sm font-semibold" [ngClass]="{
-                'bg-green-100 text-green-800': task.completed,
-                'bg-yellow-100 text-yellow-800': !task.completed
+                'bg-green-100 text-green-800': task.isCompleted,
+                'bg-yellow-100 text-yellow-800': !task.isCompleted
               }">
-              {{ task.completed ? "Completada" : "Pendiente" }}
+              {{ task.isCompleted ? "Completada" : "Pendiente" }}
             </span>
           </dd>
         </div>

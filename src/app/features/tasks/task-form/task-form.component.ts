@@ -54,7 +54,7 @@ export class TaskFormComponent implements OnInit {
     const data: Task = {
       description: this.taskForm.value.description,
       title: this.taskForm.value.title,
-      completed: false,
+      isCompleted: false,
     }
 
     if (this.data?.action === 'edit') {

@@ -12,13 +12,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { Task, TaskSummary } from '../../core/models/task/task.model';
-import { AuthService } from '../../core/services/auth/auth.service';
 import {
   loadTasks,
   deleteTask,
   loadSummary,
   updateTaskStatus,
 } from '../../store/tasks/tasks.actions';
+import { logout } from '../../store/auth/auth.actions';
 import { selectTasks, selectSummary, selectLoading } from '../../store/tasks/tasks.selectors';
 
 @Component({
@@ -48,7 +48,6 @@ export class TasksComponent implements OnInit {
   allTasks: Task[] = [];
 
   private _dialog = inject(MatDialog);
-  private _authService = inject(AuthService);
   private _store = inject(Store);
 
   tasks$ = this._store.select(selectTasks);
@@ -107,8 +106,8 @@ export class TasksComponent implements OnInit {
 
   updateStatusTask(task: Task): void {
     Swal.fire({
-      title: '¿Marcar como completada?',
-      text: 'Esta acción no se puede deshacer',
+      title: 'Tareas',
+      text: '¿Marcar como completada?,Esta acción no se puede deshacer',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Sí, completar',
@@ -126,8 +125,8 @@ export class TasksComponent implements OnInit {
 
   deleteTask(task: Task): void {
     Swal.fire({
-      title: '¿Eliminar esta tarea?',
-      text: 'Esta acción no se puede deshacer',
+      title: 'Tareas',
+      text: '¿Eliminar esta tarea?, Esta acción no se puede deshacer',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, eliminar',
@@ -140,6 +139,6 @@ export class TasksComponent implements OnInit {
   }
 
   logout(): void {
-    this._authService.logout();
+    this._store.dispatch(logout());
   }
 }

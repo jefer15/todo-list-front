@@ -23,3 +23,4 @@ export const register = createAction(
   props<{ user: { name: string; email: string; password: string } }>()
 );
 
+export const registerSuccess = createAction('[Auth] Register Success');

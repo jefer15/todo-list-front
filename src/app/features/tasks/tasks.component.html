@@ -112,17 +112,17 @@
               <mat-icon class="mr-2">notes</mat-icon>
               <span>Ver detalle</span>
             </button>
-            <button mat-menu-item (click)="updateStatusTask(row)" *ngIf="!row.paid"
+            <button mat-menu-item (click)="updateStatusTask(row)" *ngIf="!row.isCompleted"
               class="flex items-center text-gray-700 hover:bg-gray-100">
               <mat-icon class="mr-2">change_circle</mat-icon>
-              <span>Marcar como pagada</span>
+              <span>Marcar como completada</span>
             </button>
-            <button mat-menu-item (click)="editTask(row)" *ngIf="!row.paid"
+            <button mat-menu-item (click)="editTask(row)" *ngIf="!row.isCompleted"
               class="flex items-center text-gray-700 hover:bg-gray-100">
               <mat-icon class="mr-2">edit</mat-icon>
               <span>Editar</span>
             </button>
-            <button mat-menu-item (click)="deleteTask(row)" *ngIf="!row.paid"
+            <button mat-menu-item (click)="deleteTask(row)" *ngIf="!row.isCompleted"
               class="flex items-center text-gray-700 hover:bg-gray-100">
               <mat-icon class="mr-2">delete</mat-icon>
               <span>Eliminar</span>

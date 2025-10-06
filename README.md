@@ -1,27 +1,99 @@
-# TodoListFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+# 📝 Todo List Frontend (Angular 17)
 
-## Development server
+Frontend del proyecto **Todo List**, desarrollado en **Angular 17** con **NgRx** para el manejo de estado global, **Angular Material** para la interfaz, y **Tailwind CSS** para el diseño moderno y responsivo.  
+Integra un backend en **.NET 8 Web API** para la gestión de tareas y autenticación de usuarios.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Tecnologías principales
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Tecnología | Descripción |
+|-------------|-------------|
+| **Angular 17** | Framework frontend moderno basado en TypeScript. |
+| **NgRx** | Manejo de estado reactivo (Store, Effects, Actions, Reducers). |
+| **Angular Material** | Componentes UI accesibles y profesionales. |
+| **Tailwind CSS** | Framework de utilidades CSS para diseño rápido. |
+| **RxJS** | Programación reactiva con observables. |
+| **SweetAlert2** | Alertas personalizadas y modernas. |
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ⚙️ Requisitos previos
 
-## Running unit tests
+Antes de comenzar, asegúrate de tener instalado:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Node.js** v18+  
+- **Angular CLI** v17+  
+- **npm** o **yarn**  
+- **Backend .NET 8+** corriendo localmente (por defecto en `http://localhost:5114`)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🧩 Instalación
 
-## Further help
+Clona el repositorio y entra en la carpeta del proyecto:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+git clone https://github.com/jefer15/todo-list-front.git
+cd todo-list-front
+```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## 🖥️ Ejecución en desarrollo
+
+Para iniciar el servidor de desarrollo de Angular:
+
+```bash
+npm start
+```
+
+Luego abre [http://localhost:4200](http://localhost:4200) en tu navegador.
+
+---
+
+## 🧪 Ejecución de pruebas unitarias
+
+El proyecto incluye pruebas unitarias configuradas con **Karma** y **Jasmine**.
+
+Ejecuta:
+
+```bash
+npm test
+```
+---
+
+## 🧱 Estructura del proyecto
+
+```
+src
+ ├── app
+ │   ├── core
+ │   │   ├── guard
+ │   │   ├── interceptor
+ │   │   ├── models
+ │   │   │   ├── auth
+ │   │   │   └── task
+ │   │   └── services
+ │   │       ├── auth
+ │   │       └── task
+ │   ├── features
+ │   │   ├── auth
+ │   │   │   ├── login
+ │   │   │   └── register
+ │   │   └── tasks
+ │   │       ├── task-detail
+ │   │       └── task-form
+ │   └── store
+ │       ├── auth
+ │       └── tasks
+ ├── assets
+ └── environments
+```

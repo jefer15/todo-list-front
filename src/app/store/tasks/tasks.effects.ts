@@ -49,7 +49,7 @@ export class TasksEffects {
       ofType(TaskActions.updateTaskStatus),
       mergeMap(({ id }) =>
         this.taskService.updateStatus(id, true).pipe(
-          tap(() => Swal.fire('Actualizada', 'La deuda ha sido marcada como pagada', 'success')),
+          tap(() => Swal.fire('Actualizada', 'La tarea ha sido marcada como completada', 'success')),
           mergeMap(() => [
             TaskActions.loadTasks({ status: 'all' }),
             TaskActions.loadSummary()
@@ -68,7 +68,7 @@ export class TasksEffects {
       ofType(TaskActions.deleteTask),
       mergeMap(({ id }) =>
         this.taskService.deleteTask(id).pipe(
-          tap(() => Swal.fire('Eliminada', 'La deuda fue eliminada con éxito', 'success')),
+          tap(() => Swal.fire('Eliminada', 'La tarea fue eliminada con éxito', 'success')),
           mergeMap(() => [
             TaskActions.loadTasks({ status: 'all' }),
             TaskActions.loadSummary()

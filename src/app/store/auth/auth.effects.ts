@@ -38,10 +38,10 @@ export class AuthEffects {
         ofType(AuthActions.loginSuccess),
         tap(({ user }) => {
           Swal.fire({
-            title: 'Bienvenido 👋',
-            text: `Hola, has iniciado sesión correctamente.`,
+            title: 'Bienvenido',
+            text: `Has iniciado sesión correctamente.`,
             icon: 'success',
-            confirmButtonText: 'Continuar'
+            confirmButtonText: 'Aceptar'
           });
           this.router.navigate(['/']);
         })
@@ -73,13 +73,13 @@ export class AuthEffects {
         this.authService.saveUser(action.user).pipe(
           map(() => {
             Swal.fire({
-              title: 'Registro exitoso 🎉',
+              title: 'Registro exitoso',
               text: 'Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión.',
               icon: 'success',
-              confirmButtonText: 'Ir al login'
+              confirmButtonText: 'Aceptar'
             });
             this.router.navigate(['/login']);
-            return AuthActions.logout();
+            return AuthActions.registerSuccess();
           }),
           catchError(error => {
             Swal.fire({
@@ -94,6 +94,7 @@ export class AuthEffects {
     )
   );
 
+
   logout$ = createEffect(
     () =>
       this.actions$.pipe(
@@ -101,7 +102,7 @@ export class AuthEffects {
         tap(() => {
           this.authService.logout();
           Swal.fire({
-            title: 'Sesión cerrada 👋',
+            title: 'Sesión cerrada',
             text: 'Has salido correctamente.',
             icon: 'info',
             timer: 1500,
